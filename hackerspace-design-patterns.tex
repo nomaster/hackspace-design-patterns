@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=1610]{beamer}
 
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
@@ -10,6 +10,7 @@
 
 \newcommand{\concept}[2]{
   \begin{block}{#1}
+    \pause
     #2
   \end{block}
 }
@@ -29,6 +30,13 @@
     #2
   \end{exampleblock}
 }
+
+\AtBeginSubsection[]{
+  \begin{frame}
+    \tableofcontents[currentsection, currentsubsection]
+  \end{frame}
+}
+
 
 \title{Hackerspace Design Patterns}
 
@@ -50,6 +58,27 @@
 
   \section{Einführung}
 
+  \subsection{Motivation}
+
+  \begin{itemizeframe}{Warum dieser Vortrag?}
+    \item Die Hackerspace-Bewegung versteht sich selbst kaum.
+    \pause
+    \item Außerhalb verstehen es erst recht nur wenige.
+    \pause
+    \item Andere Freiräume haben die gleichen Probleme.
+    \pause
+    \item Englisch sprechen hier nicht alle Menschen.
+    \pause
+    \item Übersetzen macht Spaß. Schmerzhaften Spaß.
+  \end{itemizeframe}
+
+  \begin{itemizeframe}{Woher geklaut?}
+    \item Design Pattern von Lars Weiler und Jens Ohlig
+    \item Fotos von den Websites der Hackerspaces und Flickr
+    \item Folien mit \LaTeX-Beamer
+    \item Klaut weiter bei nomaster auf GitHub!
+  \end{itemizeframe}
+
   \subsection{Begriffe}
 
   \begin{frame}{Ort}
@@ -68,33 +97,68 @@
     }
   \end{frame}
 
-  \begin{itemizeframe}{Aktivitäten}
-    \item Do It Yourself
-    \item Workshops
-    \item Vorträge
-    \item Teilen von Wissen
-    \item Spaß haben
-  \end{itemizeframe}
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{workshop.jpg}}
+    \begin{itemizeframe}{Aktivitäten\\\small Foto von maltman23 cc by-sa}
+      \item Do It Yourself
+      \item Workshops
+      \item Vorträge
+      \item Teilen von Wissen
+      \item Spaß haben
+    \end{itemizeframe}
+  }
 
-  \begin{itemizeframe}{Infrastruktur}
-    \item Strom
-    \item Computer-Netzwerk
-    \item Internetzugang
-    \item Werkzeuge
-    \item Getränke
-  \end{itemizeframe}
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{infrastructure.jpg}}
+    \begin{itemizeframe}{Infrastruktur\\\small Foto von dreamexplorer cc
+    by-nc-sa}
+      \item Strom
+      \item Computer-Netzwerk
+      \item Internetzugang
+      \item Werkzeuge
+      \item Getränke
+    \end{itemizeframe}
+  }
 
   \subsection{Bestehende Projekte}
 
-  \begin{frame}{Noisebridge}
-    \includegraphics{noisebridge.jpg}
-  \end{frame}
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{daslabor.jpg}}
+    \begin{frame}{Das Labor}
+    \end{frame}
+  }
 
   \begin{frame}
     \begin{columns}[l]
       \column{.5\textwidth}
-      \includegraphics[width=0.9\textwidth]{noisebridge-map.jpg}
+      \includegraphics[width=0.8\textwidth]{daslabor-map.png}
       \column{.5\textwidth}
+      Das Labor
+      \begin{itemize}
+        \item Gegründet 2007\\in Bochum
+        \item ca. 180 $m^2$
+        \item Seminarraum (Blau)
+        \item Elektronik-Werkstatt (Rot)
+        \item Metallwerkstatt (Grob)
+        \item Küche (Blau)
+        \item Wohnzimmer (Gelb)
+        \item Raucherzimmer (Rauch)
+      \end{itemize}
+    \end{columns}
+  \end{frame}
+
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{noisebridge.jpg}}
+    \begin{frame}{Noisebridge\\\small Foto von sd cc by-nc-sa}
+    \end{frame}
+  }
+
+  \begin{frame}
+    \begin{columns}[l]
+      \column{.5\textwidth}
+      \includegraphics[width=0.8\textwidth]{noisebridge-map.jpg}
+      \column{.5\textwidth}
+      Noisebridge
       \begin{itemize}
         \item Gegründet 2007\\in San Francisco
         \item 483 $m^2$ Großraum
@@ -110,27 +174,6 @@
     \end{columns}
   \end{frame}
 
-  \begin{frame}{Das Labor}
-    \includegraphics{daslabor.jpg}
-  \end{frame}
-
-  \begin{frame}
-    \begin{columns}[l]
-      \column{.5\textwidth}
-      \includegraphics[width=0.9\textwidth]{daslabor-map.png}
-      \column{.5\textwidth}
-      \begin{itemize}
-        \item Gegründet 2007\\in Bochum
-        \item ca. 180 $m^2$
-        \item Seminarraum (Blau)
-        \item Elektronik-Werkstatt (Rot)
-        \item Metallwerkstatt (Grob)
-        \item Küche (Blau)
-        \item Wohnzimmer (Gelb)
-        \item Raucherzimmer (Rauch)
-      \end{itemize}
-    \end{columns}
-  \end{frame}
 
   \subsection{Muster und Antimuster}
 
@@ -148,21 +191,22 @@
 
   \begin{frame}{Infrastruktur}
     \pattern{
-      Huhn oder Ei:\\
+      Huhn oder Ei?\\
       Was sollte zuerst realisiert werden?\\
       Infrastruktur oder Projekte?
     }{
       Alles sollte von der Infrastruktur getragen werden. Räume, Strom, Server,
       Netzwerk und andere Einrichtungen haben Vorrang. Wenn du das erstmal hast,
-      werden Menschen aufkreuzen und die verblüffensten Projekte an den Start
+      werden Menschen aufkreuzen und verblüffende Projekte an den Start
       bringen.
     }
   \end{frame}
 
   \begin{frame}{Grace Hopper}
     \pattern{
-      Sollten wir den Space wirklich jetzt aufmachen?\\
-      Haben wir an alles gedacht?
+      Sollen wir den Hackerspace jetzt wirklich aufmachen?\\
+      Haben wir an alles gedacht?\\
+      Woher wissen wir, ob wir bereit sind?
     }{
       \textbf{Ja klar!!!}
       \pause
@@ -172,13 +216,16 @@
       \end{quote}
       \pause
       Wichtig ist, den Start zu machen. Viele Probleme werden verschwinden, wenn
-      du erst einmal angefangen hast.\\ \textbf{Im Zweifel: tu es!}
+      du erst einmal angefangen hast.\\
+      \textbf{Im Zweifel: tu es!}
     }
   \end{frame}
 
   \begin{frame}{Kollektiv}
     \pattern{
       Wie sollte die Gruppe kommunizieren?
+      Beim Stammtisch?
+      Per Telefon?
     }{
       Ihr seid Hacker. Ihr wisst, was zu tun ist. Hört auf, rumzuhängen und sezt
       eine Mailingliste auf. Und ein Wiki. Und einen IRC-Kanal. Alle drei werdet
@@ -187,9 +234,11 @@
     }
   \end{frame}
 
+
   \begin{frame}{Kritische Masse}
     \pattern{
-      Du willst als einziger in deiner Stadt einen Hackerspace eröffnen.
+      Du willst als einziger in deiner Stadt einen Hackerspace eröffnen. Das
+      wird nichts.
     }{
       Die Daumenregel lautet: \textbf{2 + 2}. Du brauchst einen Partner, um die
       Idee ans Laufen zu kriegen. Um die Arbeit zu schaffen, brauchst du noch
@@ -202,7 +251,7 @@
   \begin{frame}{Starke Persönlichkeiten}
     \pattern{
       Nichts wird fertig. Alle wollen den Hackerspace, aber ihr tut euch
-      schwer, den Arsch hochzukriegen.
+      schwer, den Hintern hochzukriegen.
     }{
       Suche nach \textbf{starken Persönlichkeiten} als Mitglieder für deine
       anfängliche Gruppe. Du wirst Menschen brauchen, die \textbf{Erfahrungen
@@ -270,10 +319,16 @@
     }
   \end{frame}
 
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{kitchen.jpg}}
+    \begin{frame}{Küche der Noisebridge\\\small Foto von maltman23 cc by-sa}
+    \end{frame}
+  }
+
   \begin{frame}{Behaglichkeit}
     \pattern{
-      All work and no play makes Jack a dull boy. Da muss noch was anderes sein,
-      als Arbeitsplätze und Elektronikkrempel.
+      All work and no play makes Jack a dull boy.\\
+      Da muss noch was anderes sein, als Arbeitsplätze und Elektronikkrempel.
     }{
       Holt euch \textbf{Sofas, bequeme Stühle, Tische, Aschenbecher,
       stimmungsvolle Beleuchtung, ein Soundsystem, Beamer und Videospiele}.
@@ -281,9 +336,16 @@
     }
   \end{frame}
 
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{coziness.jpg}}
+    \begin{frame}{Beleuchtung im NCY Resistor\\\small Foto von
+    girl\_onthe\_lens cc by-nc-nd}
+    \end{frame}
+  }
+
   \begin{frame}{Dusche}
     \pattern{
-      Nach langen hacking sessions werdet ihr anfangen, komisch zu riechen.
+      Nach langen Hacking Sessions werdet ihr anfangen, komisch zu riechen.
       Außerdem scheinen die Gäste in eurem Space Körperpflege zu
       vernachlässigen.
     }{
@@ -340,6 +402,12 @@
     }
   \end{frame}
 
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{meetup.jpg}}
+    \begin{frame}{Treffen in der Noisebridge\\\small Foto von maltman23 cc-by-sa}
+    \end{frame}
+  }
+
   \begin{frame}{Dienstag}
     \pattern{
       Jeder Wochentag ist ungünstig. Ihr findet keinen Tag, an dem alle Zeit
@@ -360,6 +428,14 @@
       nichts davon.
     }
   \end{frame}
+
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{talk.jpg}}
+    \begin{frame}{Vortrag im Robots and Dinosaurs\\\small Foto von Alegrya cc
+    by-nc-sa}
+    \end{frame}
+  }
+
 
   \begin{frame}{U23}
     \pattern{
@@ -481,6 +557,12 @@
     }
   \end{frame}
 
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bike-rack.jpg}}
+    \begin{frame}{Fahrradwerkstatt im i3 Detroit\\\small Foto von Bradmcmahon cc by-nc}
+    \end{frame}
+  }
+
   \begin{frame}{Privatgespräch}
     \pattern{
       Jemand löst ein Problem aus, das nicht in der Gruppe gelöst werden kann.
@@ -530,10 +612,36 @@
     }
   \end{frame}
 
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{club-mate.jpg}}
+    \begin{frame}{Club-Mate im Hack42\\\small Foto von dvanzuijlekom cc by-sa}
+    \end{frame}
+  }
+
   \section{Ausblick}
 
-  \subsection{Dies ist kein Kochbuch}
+  \begin{itemizeframe}{Legt los!}
+    \item Dies ist kein Kochbuch
+    \pause
+    \item Design Patterns entstehen aus Erfahrung
+    \pause
+    \item Findet eigene Pattern für eure eigenen Probleme
+  \end{itemizeframe}
 
-  \subsection{Vernetzung}
+  \begin{itemizeframe}{Vernetzt euch!}
+    \item Ladet zu Meet-Ups ein
+    \pause
+    \item Besucht andere Hackerspaces
+    \pause
+    \item Bearbeitet das Hackerspaces Wiki
+    \pause
+    \item Bewegt die Bewegung
+  \end{itemizeframe}
+
+  \begin{frame}{Ende}
+    \begin{center}
+      \includegraphics[width=0.8\textwidth]{hackerspaces-whiteboard.jpg}
+    \end{center}
+  \end{frame}
 
 \end{document}

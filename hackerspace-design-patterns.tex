@@ -19,12 +19,6 @@
     #2
   \end{block}
 }
-\newcommand\startitemizeframe{\begin{itemize}}
-\newcommand\stopitemizeframe{\end{itemize}}
-
-\newenvironment{itemizeframe}[1]
-  {\begin{frame}{#1}\startitemizeframe}
-  {\stopitemizeframe\end{frame}}
 
 \newcommand{\pattern}[2]{
   \begin{alertblock}{Problem}
@@ -83,7 +77,8 @@
 
   \subsection{Motivation}
 
-  \begin{itemizeframe}{Warum dieser Vortrag?}
+  \begin{frame}{Warum dieser Vortrag?}
+    \begin{itemize}
     \item Die Hackerspace-Bewegung versteht sich selbst kaum.
     \pause
     \item Außerhalb verstehen es erst recht nur wenige.
@@ -93,14 +88,17 @@
     \item Englisch sprechen hier nicht alle Menschen.
     \pause
     \item Übersetzen macht Spaß. Schmerzhaften Spaß.
-  \end{itemizeframe}
+    \end{itemize}
+  \end{frame}
 
-  \begin{itemizeframe}{Woher geklaut?}
-    \item Design Pattern von Lars Weiler und Jens Ohlig
-    \item Fotos von den Websites der Hackerspaces und Flickr
-    \item Folien mit \LaTeX-Beamer
-    \item Klaut weiter bei nomaster auf GitHub!
-  \end{itemizeframe}
+  \begin{frame}{Woher geklaut?}
+    \begin{itemize}
+      \item Design Pattern von Lars Weiler und Jens Ohlig
+      \item Fotos von den Websites der Hackerspaces und Flickr
+      \item Folien mit \LaTeX-Beamer
+      \item Klaut weiter bei nomaster auf GitHub!
+    \end{itemize}
+  \end{frame}
 
   \subsection{Begriffe}
 
@@ -655,23 +653,27 @@
 
   \section{Ausblick}
 
-  \begin{itemizeframe}{Legt los!}
-    \item Dies ist kein Kochbuch
-    \pause
-    \item Design Patterns entstehen aus Erfahrung
-    \pause
-    \item Findet eigene Pattern für eure eigenen Probleme
-  \end{itemizeframe}
+  \begin{frame}{Legt los!}
+    \begin{itemize}
+      \item Dies ist kein Kochbuch
+      \pause
+      \item Design Patterns entstehen aus Erfahrung
+      \pause
+      \item Findet eigene Pattern für eure eigenen Probleme
+    \end{itemize}
+  \end{frame}
 
-  \begin{itemizeframe}{Vernetzt euch!}
-    \item Ladet zu Meet-Ups ein
-    \pause
-    \item Besucht andere Hackerspaces
-    \pause
-    \item Bearbeitet das Hackerspaces Wiki
-    \pause
-    \item Bewegt die Bewegung
-  \end{itemizeframe}
+  \begin{frame}{Vernetzt euch!}
+    \begin{itemize}
+      \item Ladet zu Meet-Ups ein
+      \pause
+      \item Besucht andere Hackerspaces
+      \pause
+      \item Bearbeitet das Hackerspaces Wiki
+      \pause
+      \item Bewegt die Bewegung
+    \end{itemize}
+  \end{frame}
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{hackerspaces-whiteboard.jpg}}

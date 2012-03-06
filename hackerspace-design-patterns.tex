@@ -2,6 +2,11 @@
 
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{xcolor}
+
+\definecolor{black}{HTML}{3C3C3C}
+\definecolor{green}{HTML}{BBE08C}
 
 \mode<presentation>
 {
@@ -29,6 +34,24 @@
   \begin{exampleblock}{Lösung}
     #2
   \end{exampleblock}
+}
+
+\newcommand{\boxx}[1]{
+  \colorbox{black}{
+    \color{green}{#1}
+  }
+}
+
+\newcommand{\photoby}[3]{
+  \begin{textblock*}{\paperwidth}[0.15,0](\textwidth,\textheight)
+    \raggedright{
+      \boxx{
+        \tiny{
+          Foto von \href{#2}{#1} (#3)
+        }
+      }
+    }
+  \end{textblock*}
 }
 
 \AtBeginSubsection[]{
@@ -99,32 +122,39 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{workshop.jpg}}
-    \begin{itemizeframe}{Aktivitäten\\\small Foto von maltman23 cc by-sa}
-      \item Do It Yourself
-      \item Workshops
-      \item Vorträge
-      \item Teilen von Wissen
-      \item Spaß haben
-    \end{itemizeframe}
+    \begin{frame}{Aktivitäten}
+      \begin{itemize}
+        \item Do It Yourself
+        \item Workshops
+        \item Vorträge
+        \item Teilen von Wissen
+        \item Spaß haben
+      \end{itemize}
+      \photoby{maltman23}{https://secure.flickr.com/photos/maltman23/5982427147/}{CC by-sa}
+    \end{frame}
   }
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{infrastructure.jpg}}
-    \begin{itemizeframe}{Infrastruktur\\\small Foto von dreamexplorer cc
-    by-nc-sa}
-      \item Strom
-      \item Computer-Netzwerk
-      \item Internetzugang
-      \item Werkzeuge
-      \item Getränke
-    \end{itemizeframe}
+    \begin{frame}{Infrastruktur}
+      \begin{itemize}
+        \item Strom
+        \item Computer-Netzwerk
+        \item Internetzugang
+        \item Werkzeuge
+        \item Getränke
+      \end{itemize}
+      \photoby{dreamexplorer}{https://secure.flickr.com/photos/dreamexplorer/5739464898/}{CC by-nc-sa}
+    \end{frame}
   }
 
   \subsection{Bestehende Projekte}
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{daslabor.jpg}}
-    \begin{frame}{Das Labor}
+    \begin{frame}{\boxx{Das Labor}}
+      \photoby{Das Labor}{http://das-labor.org/wiki/Datei:Bastelraum\_1.JPG}{GNU
+      FDL}
     \end{frame}
   }
 
@@ -149,7 +179,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{noisebridge.jpg}}
-    \begin{frame}{Noisebridge\\\small Foto von sd cc by-nc-sa}
+    \begin{frame}{\boxx{Noisebridge}}
+      \photoby{sd}{https://secure.flickr.com/photos/sd/5705133826/}{CC by-nc-sa}
     \end{frame}
   }
 
@@ -321,7 +352,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{kitchen.jpg}}
-    \begin{frame}{Küche der Noisebridge\\\small Foto von maltman23 cc by-sa}
+    \begin{frame}{\boxx{Küche der Noisebridge}}
+      \photoby{maltman23}{https://secure.flickr.com/photos/maltman23/6254785979/}{CC by-sa}
     \end{frame}
   }
 
@@ -338,8 +370,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{coziness.jpg}}
-    \begin{frame}{Beleuchtung im NCY Resistor\\\small Foto von
-    girl\_onthe\_lens cc by-nc-nd}
+    \begin{frame}{\boxx{Beleuchtung im NYC Resistor}}
+      \photoby{girl\_onthe\_les}{https://secure.flickr.com/photos/girlontheles/6164704739/}{CC by-nc-nd}
     \end{frame}
   }
 
@@ -404,7 +436,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{meetup.jpg}}
-    \begin{frame}{Treffen in der Noisebridge\\\small Foto von maltman23 cc-by-sa}
+    \begin{frame}{\boxx{Treffen in der Noisebridge}}
+      \photoby{maltman23}{https://secure.flickr.com/photos/maltman23/6255313258/}{cc-by-sa}
     \end{frame}
   }
 
@@ -431,8 +464,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{talk.jpg}}
-    \begin{frame}{Vortrag im Robots and Dinosaurs\\\small Foto von Alegrya cc
-    by-nc-sa}
+    \begin{frame}{\boxx{Vortrag im Robots and Dinosaurs}}
+      \photoby{Alegrya}{https://secure.flickr.com/photos/alegrya/3670712239/}{CC by-nc-sa}
     \end{frame}
   }
 
@@ -559,7 +592,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bike-rack.jpg}}
-    \begin{frame}{Fahrradwerkstatt im i3 Detroit\\\small Foto von Bradmcmahon cc by-nc}
+    \begin{frame}{\boxx{Fahrradwerkstatt im i3 Detroit}}
+      \photoby{Bradmcmahon}{https://secure.flickr.com/photos/bradmcmahon/5388909742/}{CC by-nc}
     \end{frame}
   }
 
@@ -614,7 +648,8 @@
 
   {
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{club-mate.jpg}}
-    \begin{frame}{Club-Mate im Hack42\\\small Foto von dvanzuijlekom cc by-sa}
+    \begin{frame}{\boxx{Club-Mate im Hack42}}
+      \photoby{dvanzuijlekom}{https://secure.flickr.com/photos/dvanzuijlekom/6854225951/}{CC by-sa}
     \end{frame}
   }
 
@@ -638,10 +673,22 @@
     \item Bewegt die Bewegung
   \end{itemizeframe}
 
-  \begin{frame}{Ende}
-    \begin{center}
-      \includegraphics[width=0.8\textwidth]{hackerspaces-whiteboard.jpg}
-    \end{center}
-  \end{frame}
+  {
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{hackerspaces-whiteboard.jpg}}
+    \begin{frame}{\boxx{Ende}}
+      \boxx{
+        Für mehr Informationen besucht \url{http://hackerspaces.org}\\
+      }\\
+      \boxx{
+        \tiny{
+          Diese Präsentation gibt’s unter einer freien Lizenz unter
+          \url{https://github.com/nomaster/Hackerspace-Design-Patterns}
+          \includegraphics[width=30px]{cc-by-nc-sa.png}
+        }
+      }
+      \photoby{maltman23}{https://secure.flickr.com/photos/maltman23/6255298112/}{CC
+      by-sa}
+    \end{frame}
+  }
 
 \end{document}

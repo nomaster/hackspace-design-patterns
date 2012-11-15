@@ -1,4 +1,4 @@
-\documentclass[aspectratio=1610]{beamer}
+\documentclass[aspectratio=43]{beamer}
 
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
@@ -37,7 +37,7 @@
 }
 
 \newcommand{\photoby}[3]{
-  \begin{textblock*}{\paperwidth}[0.15,0](\textwidth,\textheight)
+  \begin{textblock*}{\paperwidth}[0.25,0](\textwidth,\textheight)
     \raggedright{
       \boxx{
         \tiny{
@@ -136,6 +136,8 @@
   \end{frame}
 
   {
+    \pagecolor{black}
+    \color{white}
     \usebackgroundtemplate{\includegraphics[width=\paperwidth]{hacker.jpg}}
     \begin{frame}{\boxx{Musizieren mit der Nähmaschine}}
       \photoby{See-Ming Lee}{https://secure.flickr.com/photos/seeminglee/4390053625/}{CC by-sa}
@@ -782,10 +784,15 @@
       \boxx{
         \tiny{
           Diese Präsentation gibt’s unter einer freien Lizenz unter
-          \url{https://github.com/nomaster/hackspace-design-patterns}
-          \includegraphics[width=30px]{cc-by-nc-sa.png}
         }
       }\\
+      \boxx{
+        \tiny{
+          \url{https://github.com/nomaster/hackspace-design-patterns}
+        }
+      }
+      \includegraphics[width=30px]{cc-by-nc-sa.png}
+      \\
       \boxx{
         \tiny{Mic \flq nomaster@chaosdorf.de\frq}
         \tiny{@nomaster auf identi.ca und Twitter}
